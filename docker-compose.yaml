@@ -15,6 +15,7 @@ services:
       restart: always
       depends_on:
           - postgres
+          - mailcatcher
       environment:
           - LOAD_EX=n
           - EXECUTOR=Local
@@ -26,3 +27,8 @@ services:
       ports:
           - 8080:8080
       command: webserver
+  mailcatcher:
+      image: schickling/mailcatcher
+      ports:
+          - 1080:1080
+
